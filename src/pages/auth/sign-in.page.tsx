@@ -1,24 +1,14 @@
 import { Button } from '@/components/ui/button';
 import { Accessibility, Loader2 } from 'lucide-react';
-import React from 'react';
 import { SignInDto } from '@/common/types/types';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { signInSchema } from '@/common/validation-schemas/validation-schemas';
 import { InputForm } from '@/components/shared/form/form/form';
+import { useState } from 'react';
 
 const SignInPage = () => {
-  const [isLoading, setIsLoading] = React.useState<boolean>(false);
-
-  // async function onSubmit(event: React.SyntheticEvent) {
-  //   event.preventDefault();
-  //   setIsLoading(true);
-
-  //   setTimeout(() => {
-  //     setIsLoading(false);
-  //   }, 3000);
-  // }
-
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   // const { authStore } = useStores();
   // const navigate = useNavigate();
 
@@ -32,7 +22,8 @@ const SignInPage = () => {
     resolver: yupResolver(signInSchema),
   });
 
-  const onSubmit: SubmitHandler<SignInDto> = (data: any) => {
+  const onSubmit: SubmitHandler<SignInDto> = (data) => {
+    console.log(data);
     // event.preventDefault();
     setIsLoading(true);
 
