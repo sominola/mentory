@@ -45,11 +45,6 @@ module.exports = {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
         },
-        'error-light': 'var(--errorLight)',
-        'violet-light': 'var(--violetLight)',
-        'error-dark': 'var(--errorDark)',
-        'red-light': 'var(--redLight)',
-        cyan: 'var(--cyan)',
       },
       borderRadius: {
         lg: 'var(--radius)',
