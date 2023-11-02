@@ -1,3 +1,1 @@
-import { Descendant } from 'slate';
-
-export type ContentType = Descendant[];
+export type ContentType = unknown;
