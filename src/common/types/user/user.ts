@@ -5,4 +5,3 @@ export { type SignUpDto } from '@/common/types/user/sign-up.dto';
 export { type TokensDto } from '@/common/types/user/tokens.dto';
 export { type UserUpdateDto } from '@/common/types/user/user-update.dto';
 export { type UserDto } from '@/common/types/user/user.dto';
-export { type UserCacheDto } from '@/common/types/user/user-cache.dto';
