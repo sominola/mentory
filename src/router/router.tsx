@@ -1,7 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import { lazy } from 'react';
 import { RouteObject, createBrowserRouter } from 'react-router-dom';
-import NoProtectedRoute from '@/components/shared/guards/no-protected.guard.tsx';
 import { AppRoute } from '@/common/enums/enums';
 
 const App = lazy(() => import('@/App.tsx'));
@@ -17,27 +16,15 @@ export const routes: RouteObject[] = [
     children: [
       {
         path: AppRoute.SIGN_IN,
-        element: (
-          <NoProtectedRoute>
-            <SignInPage />
-          </NoProtectedRoute>
-        ),
+        element: <SignInPage />,
       },
       {
         path: AppRoute.SIGN_UP,
-        element: (
-          <NoProtectedRoute>
-            <SignUpPage />
-          </NoProtectedRoute>
-        ),
+        element: <SignUpPage />,
       },
       {
         path: AppRoute.MENTORS,
-        element: (
-          <NoProtectedRoute>
-            <MentorsPage />
-          </NoProtectedRoute>
-        ),
+        element: <MentorsPage />,
       },
     ],
   },
