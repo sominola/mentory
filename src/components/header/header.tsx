@@ -25,6 +25,9 @@ export const Header = () => {
           <Link className="transition-colors hover:text-foreground/80 text-foreground/60" to={AppRoute.SIGN_UP}>
             Sign Up
           </Link>
+          <Link className="transition-colors hover:text-foreground/80 text-foreground/60" to={AppRoute.MENTORS}>
+            Mentors
+          </Link>
           <nav className="flex items-center">
             <ModeToggle />
           </nav>
