@@ -7,6 +7,7 @@ import { AppRoute } from '@/common/enums/enums';
 const App = lazy(() => import('@/App.tsx'));
 const SignUpPage = lazy(() => import('@/pages/auth/sign-up.page.tsx'));
 const SignInPage = lazy(() => import('@/pages/auth/sign-in.page.tsx'));
+const MentorsPage = lazy(() => import('@/pages/metnors/mentors.page'));
 
 export const routes: RouteObject[] = [
   {
@@ -27,6 +28,14 @@ export const routes: RouteObject[] = [
         element: (
           <NoProtectedRoute>
             <SignUpPage />
+          </NoProtectedRoute>
+        ),
+      },
+      {
+        path: AppRoute.MENTORS,
+        element: (
+          <NoProtectedRoute>
+            <MentorsPage />
           </NoProtectedRoute>
         ),
       },
