@@ -48,6 +48,32 @@
     --ring: 240 4.9% 83.9%;
   }
 }
+/* @layer base {
+  * ::-webkit-scrollbar {
+    height: 0.375rem;
+    width: 0.75rem;
+  }
+
+  * ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  * ::-webkit-scrollbar-thumb {
+    border-radius: 0.375rem;
+  }
+
+  * :hover::-webkit-scrollbar-thumb {
+    border: 3px solid transparent;
+    @apply bg-border;
+    background-clip: content-box;
+  }
+
+  * ::-webkit-scrollbar {
+    border-radius: 4px;
+    height: 8px;
+    width: 13px;
+  }
+} */
 
 @layer base {
   * {

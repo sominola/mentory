@@ -7,7 +7,7 @@ const imgSrc =
 
 const MentorsPage: React.FC = () => {
   return (
-    <div className="py-[50px] flex flex-col gap-5">
+    <div className="py-[50px] flex flex-col gap-5 px-[75px] max-md:p-0">
       <div className="w-[300px] flex justify-center max-md:w-full">
         <IndustyMenu />
       </div>
@@ -65,7 +65,7 @@ const MentorItem: React.FC = () => {
           <Button className="rounded-[24px] h-[48px] px-[40px] text-lg">
             <Link to={'/mentors/1'}>View Profile</Link>
           </Button>
-          <div className="max-md:hidden">See pricing &amp; availability</div>
+          <div className="max-md:hidden text-center">See pricing &amp; availability</div>
         </section>
       </div>
     </div>
