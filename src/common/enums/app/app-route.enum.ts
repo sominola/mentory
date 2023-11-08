@@ -3,6 +3,7 @@ const AppRoute = {
   SIGN_IN: '/sign-in',
   SIGN_UP: '/sign-up',
   MENTORS: '/mentors',
+  MENTOR: '/mentors/:id',
 };
 
 export { AppRoute };

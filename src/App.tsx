@@ -7,7 +7,7 @@ function App() {
     <div className="relative flex min-h-screen flex-col">
       <Header />
       <main className="flex-1">
-        <div className="container">
+        <div className="p-3">
           <Suspense>
             <Outlet />
           </Suspense>

@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { IndustyMenu } from './industry-menu';
+import { Link } from 'react-router-dom';
 
 const imgSrc =
   'https://res.cloudinary.com/mentorcam/image/upload/ar_414:516,c_fill,f_auto,g_face:center,q_100,w_550/v1/user-profiles/eo0NsIuHpXPKXsgcrNzMfRNbO7r1/images/-NFzvoPKAGSVDLE-4iqC.jpg';
@@ -61,7 +62,9 @@ const MentorItem: React.FC = () => {
           </div>
         </section>
         <section className="flex justify-between max-xs:justify-center">
-          <Button className="rounded-[24px] h-[48px] px-[40px] text-lg">View Profile</Button>
+          <Button className="rounded-[24px] h-[48px] px-[40px] text-lg">
+            <Link to={'/mentors/1'}>View Profile</Link>
+          </Button>
           <div className="max-md:hidden">See pricing &amp; availability</div>
         </section>
       </div>

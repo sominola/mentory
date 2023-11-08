@@ -72,6 +72,7 @@ module.exports = {
         '2xl': '1400px',
         'max-md': { max: '767px' },
         'max-xs': { max: '479px' },
+        'max-sm': { max: '639px' },
       },
     },
   },
