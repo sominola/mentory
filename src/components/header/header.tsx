@@ -8,10 +8,10 @@ export const Header = () => {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 items-center">
         <div className="mr-4 hidden md:flex">
-          <a className="mr-6 flex items-center space-x-2" href="/">
+          <Link className="mr-6 flex items-center space-x-2" to={AppRoute.ROOT}>
             <Users className="h-6 w-6" />
             <span className="hidden font-bold sm:inline-block">Mentorship</span>
-          </a>
+          </Link>
           <nav className="flex items-center space-x-6 text-sm font-medium">
             {/* <a className="transition-colors hover:text-foreground/80 text-foreground/60" href="#">
               Main

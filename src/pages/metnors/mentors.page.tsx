@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button';
+import { IndustyMenu } from './industry-menu';
 
 const imgSrc =
   'https://res.cloudinary.com/mentorcam/image/upload/ar_414:516,c_fill,f_auto,g_face:center,q_100,w_550/v1/user-profiles/eo0NsIuHpXPKXsgcrNzMfRNbO7r1/images/-NFzvoPKAGSVDLE-4iqC.jpg';
@@ -6,6 +7,9 @@ const imgSrc =
 const MentorsPage: React.FC = () => {
   return (
     <div className="py-[50px] flex flex-col gap-5">
+      <div className="w-[300px] flex justify-center max-md:w-full">
+        <IndustyMenu />
+      </div>
       <MentorItem />
       <MentorItem />
       <MentorItem />
@@ -18,8 +22,8 @@ const MentorsPage: React.FC = () => {
 const MentorItem: React.FC = () => {
   return (
     <div
-      className="flex w-full h-[410px] max-xs:h-[475px] overflow-hidden border-2 rounded-[32px] scale-95 shadow-lg 
-        transform ransition duration-300 hover:scale-100
+      className="flex w-full h-[410px] max-xs:h-[500px] overflow-hidden border-2 rounded-[32px] shadow-lg 
+        transform ransition duration-300 hover:scale-105
         max-xs:flex-col">
       <div className="flex max-md:pl-[15px] max-md:pt-[15px] max-xs:w-full max-xs:justify-center max-xs:p-0 max-xs:pb-3">
         <img
