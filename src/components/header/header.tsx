@@ -19,7 +19,7 @@ export const Header = () => {
           </nav>
         </div>
         <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
-          <Link className="transition-colors hover:text-foreground/80 text-foreground/60" to={AppRoute.ACCOUNT}>
+          <Link className="transition-colors hover:text-foreground/80 text-foreground/60" to={AppRoute.ACCOUNTgit}>
             Account
           </Link>
           <Link className="transition-colors hover:text-foreground/80 text-foreground/60" to={AppRoute.SIGN_IN}>

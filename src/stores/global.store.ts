@@ -15,16 +15,17 @@ const changeTheme = (thm: Theme) => {
 
   root.classList.remove('light', 'dark');
   const themeColorMeta = document.getElementById('theme-color-meta');
-  themeColorMeta?.setAttribute('content', thm === 'dark' ? 'black' : 'white');
 
   if (thm === 'system') {
     const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 
     root.classList.add(systemTheme);
+    themeColorMeta?.setAttribute('content', systemTheme === 'dark' ? 'black' : 'white');
     return;
   }
 
   root.classList.add(thm);
+  themeColorMeta?.setAttribute('content', thm === 'dark' ? 'black' : 'white');
 
   localStorage.setItem('theme', thm);
 };
