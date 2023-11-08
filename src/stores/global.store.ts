@@ -23,6 +23,10 @@ const changeTheme = (thm: Theme) => {
   }
 
   root.classList.add(thm);
+
+  const themeColorMeta = document.getElementById('theme-color-meta');
+  themeColorMeta?.setAttribute('content', thm === 'dark' ? 'black' : 'white');
+
   localStorage.setItem('theme', thm);
 };
 changeTheme(currenTheme);
