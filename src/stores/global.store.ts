@@ -14,6 +14,8 @@ const changeTheme = (thm: Theme) => {
   const root = window.document.documentElement;
 
   root.classList.remove('light', 'dark');
+  const themeColorMeta = document.getElementById('theme-color-meta');
+  themeColorMeta?.setAttribute('content', thm === 'dark' ? 'black' : 'white');
 
   if (thm === 'system') {
     const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
@@ -23,9 +25,6 @@ const changeTheme = (thm: Theme) => {
   }
 
   root.classList.add(thm);
-
-  const themeColorMeta = document.getElementById('theme-color-meta');
-  themeColorMeta?.setAttribute('content', thm === 'dark' ? 'black' : 'white');
 
   localStorage.setItem('theme', thm);
 };
