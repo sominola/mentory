@@ -31,6 +31,9 @@ export const Header = () => {
           <Link className="transition-colors hover:text-foreground/80 text-foreground/60" to={AppRoute.MENTORS}>
             Mentors
           </Link>
+          <Link className="transition-colors hover:text-foreground/80 text-foreground/60" to={AppRoute.MEETINGS}>
+            Meetings
+          </Link>
           <nav className="flex items-center">
             <ModeToggle />
           </nav>

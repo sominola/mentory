@@ -1,11 +1,13 @@
 import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
 import { Header } from './components/header/header';
+import { Toaster } from 'sonner';
 
 function App() {
   return (
     <div className="relative flex min-h-screen flex-col">
       <Header />
+      <Toaster />
       <main className="flex-1">
         <div className="p-3">
           <Suspense>

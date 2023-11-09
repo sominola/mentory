@@ -15,7 +15,7 @@ import { NavLink } from 'react-router-dom';
 const AccountPage = () => {
   return (
     <div>
-      <div className="p-[40px] pt-[30px] max-md:py-[10px]">
+      <div className="p-[20px] pt-[15px] max-md:py-[10px]">
         <h2 className="font-medium text-[2rem]">Account Settings</h2>
       </div>
       <div className="border-b-[1px]"></div>

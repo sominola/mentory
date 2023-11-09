@@ -1,6 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import { lazy } from 'react';
-import { RouteObject, createBrowserRouter } from 'react-router-dom';
+import { RouteObject, createBrowserRouter, redirect } from 'react-router-dom';
 import { AppRoute } from '@/common/enums/enums';
 
 const App = lazy(() => import('@/App.tsx'));
@@ -9,6 +9,10 @@ const SignInPage = lazy(() => import('@/pages/auth/sign-in.page.tsx'));
 const MentorsPage = lazy(() => import('@/pages/metnors/mentors.page'));
 const MentorPage = lazy(() => import('@/pages/metnors/mentor.page'));
 const AccountPage = lazy(() => import('@/pages/account/account.page'));
+const MeetingsPage = lazy(() => import('@/pages/meetings/meetings.page'));
+const MeetingsUpcomingPage = lazy(() => import('@/pages/meetings/upcoming.page'));
+const MeetingsPendingPage = lazy(() => import('@/pages/meetings/pending.page'));
+const MeetingsHistoryPage = lazy(() => import('@/pages/meetings/history.page'));
 
 export const routes: RouteObject[] = [
   {
@@ -35,6 +39,19 @@ export const routes: RouteObject[] = [
       {
         path: AppRoute.ACCOUNT,
         element: <AccountPage />,
+      },
+      {
+        path: AppRoute.MEETINGS,
+        element: <MeetingsPage />,
+        children: [
+          {
+            index: true,
+            loader: () => redirect(AppRoute.MEETINGS_UPCOMING),
+          },
+          { path: AppRoute.MEETINGS_UPCOMING, element: <MeetingsUpcomingPage /> },
+          { path: AppRoute.MEETINGS_PENDING, element: <MeetingsPendingPage /> },
+          { path: AppRoute.MEETINGS_HISTORY, element: <MeetingsHistoryPage /> },
+        ],
       },
     ],
   },
