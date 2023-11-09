@@ -27,15 +27,17 @@ const Item: React.FC = () => {
             <div className="flex flex-col">
               <div className="flex">
                 <div>
-                  <h2 className="text-xl font-bold">Alexandra Zatarain</h2>
-                  <h3>Event start in 5 minutes</h3>
+                  <h2 className="text-xl font-bold max-xs:text-sm">Alexandra Zatarain</h2>
+                  <h3 className="max-xs:text-xs opacity-60">Event start in 5 minutes</h3>
                 </div>
               </div>
             </div>
           </div>
         </Link>
         <div className="flex items-center">
-          <Button onClick={() => toast('Link copied')}>Copy meet link</Button>
+          <Button className="max-xs:text-xs max-xs:px-1" onClick={() => toast('Link copied')}>
+            Copy meet link
+          </Button>
         </div>
       </div>
     </div>

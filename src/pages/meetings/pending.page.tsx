@@ -28,10 +28,10 @@ const Item: React.FC = () => {
             <div className="flex flex-col">
               <div className="flex">
                 <div>
-                  <h2 className="text-xl font-bold">Alexandra Zatarain</h2>
-                  <div className="flex gap-3">
-                    <h4 className="text-sm">In live</h4>
+                  <h2 className="text-xl font-bold max-xs:text-sm">Alexandra Zatarain</h2>
+                  <div className="flex gap-1 items-center animate-pulse">
                     <Radio className="stroke-red-500" />
+                    <h4 className="opacity-60 max-xs:text-xs">In live</h4>
                   </div>
                 </div>
               </div>
@@ -39,7 +39,9 @@ const Item: React.FC = () => {
           </div>
         </Link>
         <div className="flex items-center">
-          <Button onClick={() => toast('Link copied')}>Copy meet link</Button>
+          <Button className="max-xs:text-xs max-xs:px-1" onClick={() => toast('Link copied')}>
+            Copy meet link
+          </Button>
         </div>
       </div>
     </div>

@@ -38,27 +38,29 @@ const Item: React.FC = () => {
   return (
     <div className="flex items-center px-3 h-[80px] w-full border-[1px] rounded-lg">
       <div className="flex justify-between w-full">
-        <Link to="/mentors/1">
-          <div className="flex gap-3 items-center hover:opacity-80">
-            <div className="w-[68px] h-[68px] flex-none">
-              <img className="w-full h-full rounded-full object-cover" src={imgSrc} />
-            </div>
-            <div className="flex flex-col">
-              <div className="flex">
-                <div>
-                  <h2 className="text-xl font-bold">Alexandra Zatarain</h2>
-                  <div className="flex gap-3">
-                    {status === 'Success' && <h4 className="text-sm font-semibold text-green-400">Success</h4>}
-                    {status === 'Cancelled' && (
-                      <h4 className="text-sm font-semibold text-destructive brightness-150">Cancelled</h4>
-                    )}
+        <div>
+          <Link to="/mentors/1">
+            <div className="flex gap-3 items-center hover:opacity-80">
+              <div className="w-[68px] h-[68px] flex-none">
+                <img className="w-full h-full rounded-full object-cover" src={imgSrc} />
+              </div>
+              <div className="flex flex-col">
+                <div className="flex">
+                  <div>
+                    <h2 className="text-xl font-bold max-xs:text-sm">Alexandra Zatarain</h2>
+                    <div className="flex gap-3">
+                      {status === 'Success' && <h4 className="text-sm font-semibold text-green-400">Success</h4>}
+                      {status === 'Cancelled' && (
+                        <h4 className="text- font-semibold text-destructive brightness-150">Cancelled</h4>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </Link>
-        <div>{date.toLocaleString()}</div>
+          </Link>
+        </div>
+        <div className="text-sm text-end">{date.toLocaleString()}</div>
       </div>
     </div>
   );
