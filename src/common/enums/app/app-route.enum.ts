@@ -8,7 +8,7 @@ const AppRoute = {
   MEETINGS: '/meetings',
   MEETINGS_PENDING: '/meetings/pending',
   MEETINGS_UPCOMING: '/meetings/upcoming',
-  MEETINGS_HISTORY: '/meetings/hitsory',
+  MEETINGS_HISTORY: '/meetings/history',
 };
 
 export { AppRoute };

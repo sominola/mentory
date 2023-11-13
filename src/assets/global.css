@@ -48,8 +48,8 @@
     --ring: 240 4.9% 83.9%;
   }
 }
-/* @layer base {
-  * ::-webkit-scrollbar {
+@layer base {
+  /* * ::-webkit-scrollbar {
     height: 0.375rem;
     width: 0.75rem;
   }
@@ -64,7 +64,7 @@
 
   * :hover::-webkit-scrollbar-thumb {
     border: 3px solid transparent;
-    @apply bg-border;
+    @apply bg-foreground brightness-50;
     background-clip: content-box;
   }
 
@@ -72,8 +72,12 @@
     border-radius: 4px;
     height: 8px;
     width: 13px;
+  } */
+
+  ::selection {
+    @apply text-background bg-foreground;
   }
-} */
+}
 
 @layer base {
   * {

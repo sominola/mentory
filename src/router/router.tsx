@@ -9,6 +9,7 @@ const SignInPage = lazy(() => import('@/pages/auth/sign-in.page.tsx'));
 const MentorsPage = lazy(() => import('@/pages/metnors/mentors.page'));
 const MentorPage = lazy(() => import('@/pages/metnors/mentor.page'));
 const AccountPage = lazy(() => import('@/pages/account/account.page'));
+const AccountFormaPage = lazy(() => import('@/pages/account/account-forma.page'));
 const MeetingsPage = lazy(() => import('@/pages/meetings/meetings.page'));
 const MeetingsUpcomingPage = lazy(() => import('@/pages/meetings/upcoming.page'));
 const MeetingsPendingPage = lazy(() => import('@/pages/meetings/pending.page'));
@@ -39,6 +40,12 @@ export const routes: RouteObject[] = [
       {
         path: AppRoute.ACCOUNT,
         element: <AccountPage />,
+        children: [
+          {
+            index: true,
+            element: <AccountFormaPage />,
+          },
+        ],
       },
       {
         path: AppRoute.MEETINGS,
