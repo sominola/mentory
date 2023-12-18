@@ -6,11 +6,15 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { signUpSchema } from '@/common/validation-schemas/validation-schemas';
 import { InputForm } from '@/components/shared/form/form/form';
 import { useState } from 'react';
+import { authService } from '@/services/auth.service.ts';
+import { AppRoute } from '@/common/enums/app/app.ts';
+import { useNavigate } from 'react-router-dom';
+import { useAuthStore } from '@/stores/auth.store.ts';
 
 const SignUpPage = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  // const { authStore } = useStores();
-  // const navigate = useNavigate();
+  const { setUser } = useAuthStore();
+  const navigate = useNavigate();
 
   const {
     register,
@@ -22,14 +26,18 @@ const SignUpPage = () => {
     resolver: yupResolver(signUpSchema),
   });
 
-  const onSubmit: SubmitHandler<SignUpDto> = (data) => {
-    console.log(data);
-    // event.preventDefault();
+  const onSubmit: SubmitHandler<SignUpDto> = async (data,e) => {
+    e?.preventDefault();
     setIsLoading(true);
+    await authService.register(data)
+      .then(user => {
+        setTimeout(() => {
+          setIsLoading(false);
+          setUser(user);
+          navigate(AppRoute.ACCOUNT);
+        }, 1000);
+      });
 
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 3000);
   };
 
   return (
@@ -103,7 +111,8 @@ const SignUpPage = () => {
             </div>
           </div>
           <Button variant="outline" type="button" disabled={isLoading}>
-            {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Accessibility className="mr-2 h-4 w-4" />}{' '}
+            {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> :
+              <Accessibility className="mr-2 h-4 w-4" />}{' '}
             Google
           </Button>
         </div>

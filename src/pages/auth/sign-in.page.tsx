@@ -6,12 +6,16 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { signInSchema } from '@/common/validation-schemas/validation-schemas';
 import { InputForm } from '@/components/shared/form/form/form';
 import { useState } from 'react';
+import { authService } from '@/services/auth.service.ts';
+import { AppRoute } from '@/common/enums/app/app-route.enum.ts';
+import { useAuthStore } from '@/stores/auth.store.ts';
+import { useNavigate } from 'react-router-dom';
 
 const SignInPage = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  // const { authStore } = useStores();
-  // const navigate = useNavigate();
-
+  const navigate = useNavigate();
+  const { setUser } = useAuthStore();
+  
   const {
     register,
     handleSubmit,
@@ -22,14 +26,18 @@ const SignInPage = () => {
     resolver: yupResolver(signInSchema),
   });
 
-  const onSubmit: SubmitHandler<SignInDto> = (data) => {
-    console.log(data);
-    // event.preventDefault();
+  const onSubmit: SubmitHandler<SignInDto> = async (_, e) => {
+    e?.preventDefault();
     setIsLoading(true);
 
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 3000);
+    await authService.login()
+      .then(user => {
+        setTimeout(() => {
+          setIsLoading(false);
+          setUser(user);
+          navigate(AppRoute.ACCOUNT);
+        }, 1000);
+      });
   };
 
   return (

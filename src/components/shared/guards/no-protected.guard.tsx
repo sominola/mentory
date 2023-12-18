@@ -8,8 +8,8 @@ type Properties = {
   redirectPath?: ValueOf<typeof AppRoute>;
 };
 
-const NoProtectedRoute: React.FC<Properties> = ({ children, redirectPath = AppRoute.ROOT }: Properties) => {
-  const hasAuthenticatedUser = localStorage.getItem('access_token') != null;
+const NoProtectedRoute: React.FC<Properties> = ({ children, redirectPath = AppRoute.ACCOUNT }: Properties) => {
+  const hasAuthenticatedUser = localStorage.getItem('user') != null;
 
   if (!hasAuthenticatedUser) {
     return <>{children}</>;

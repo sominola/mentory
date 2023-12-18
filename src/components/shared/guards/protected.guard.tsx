@@ -9,7 +9,7 @@ type Properties = {
 };
 
 const ProtectedRoute: FC<Properties> = ({ children, redirectPath = AppRoute.SIGN_IN }: Properties) => {
-  const hasAuthenticatedUser = localStorage.getItem('access_token') != null;
+  const hasAuthenticatedUser = localStorage.getItem('user') != null;
 
   if (!hasAuthenticatedUser) {
     return <Navigate to={redirectPath} replace />;

@@ -2,6 +2,8 @@
 import { lazy } from 'react';
 import { RouteObject, createBrowserRouter, redirect } from 'react-router-dom';
 import { AppRoute } from '@/common/enums/enums';
+import NoProtectedRoute from '@/components/shared/guards/no-protected.guard.tsx';
+import ProtectedRoute from '@/components/shared/guards/protected.guard.tsx';
 
 const App = lazy(() => import('@/App.tsx'));
 const SignUpPage = lazy(() => import('@/pages/auth/sign-up.page.tsx'));
@@ -9,7 +11,7 @@ const SignInPage = lazy(() => import('@/pages/auth/sign-in.page.tsx'));
 const MentorsPage = lazy(() => import('@/pages/metnors/mentors.page'));
 const MentorPage = lazy(() => import('@/pages/metnors/mentor.page'));
 const AccountPage = lazy(() => import('@/pages/account/account.page'));
-const AccountFormaPage = lazy(() => import('@/pages/account/account-forma.page'));
+const AccountFormPage = lazy(() => import('@/pages/account/account-forma.page'));
 const MeetingsPage = lazy(() => import('@/pages/meetings/meetings.page'));
 const MeetingsUpcomingPage = lazy(() => import('@/pages/meetings/upcoming.page'));
 const MeetingsPendingPage = lazy(() => import('@/pages/meetings/pending.page'));
@@ -23,11 +25,18 @@ export const routes: RouteObject[] = [
     children: [
       {
         path: AppRoute.SIGN_IN,
-        element: <SignInPage />,
+        element:
+          <NoProtectedRoute>
+            <SignInPage />
+          </NoProtectedRoute>,
       },
       {
         path: AppRoute.SIGN_UP,
-        element: <SignUpPage />,
+        element:
+
+          <NoProtectedRoute>
+            <SignUpPage />
+          </NoProtectedRoute>,
       },
       {
         path: AppRoute.MENTORS,
@@ -43,13 +52,13 @@ export const routes: RouteObject[] = [
         children: [
           {
             index: true,
-            element: <AccountFormaPage />,
+            element: <AccountFormPage />
           },
         ],
       },
       {
         path: AppRoute.MEETINGS,
-        element: <MeetingsPage />,
+        element: <ProtectedRoute> <MeetingsPage /></ProtectedRoute>,
         children: [
           {
             index: true,

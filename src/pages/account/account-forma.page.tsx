@@ -7,19 +7,21 @@ import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/componen
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Loader2 } from 'lucide-react';
 import { useState, useRef, ChangeEvent } from 'react';
-import { useForm } from 'react-hook-form';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { useAuthStore } from '@/stores/auth.store.ts';
 
 const AccountFormaPage = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const { currentUser, setUser } = useAuthStore();
   const {
     register,
-    // handleSubmit,
+    handleSubmit,
     formState,
     formState: { errors, dirtyFields },
   } = useForm<UserUpdateDto>({
     mode: 'all',
-    values: { firstName: 'Nikita', lastName: 'Savchuk', email: 'sominola@gmail.com' } as UserDto,
+    values: { ...currentUser } as UserDto,
     resolver: yupResolver(userUpdateSchema),
   });
   const handleFileChange = async (e: ChangeEvent<HTMLInputElement>) => {
@@ -28,8 +30,19 @@ const AccountFormaPage = () => {
     }
   };
 
+  const onSubmit: SubmitHandler<UserUpdateDto> = async (data, e) => {
+    e?.preventDefault();
+    setIsLoading(true);
+
+    setTimeout(() => {
+      setIsLoading(false);
+      const updatedUser = {...currentUser, firstName: data.firstName, lastName: data.lastName}
+      setUser(updatedUser as UserDto);
+    }, 1000);
+  };
+  
   return (
-    <div className="flex flex-col gap-5">
+    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
       <Card className="w-full">
         <CardHeader>
           <CardTitle>Avatar</CardTitle>
@@ -105,19 +118,13 @@ const AccountFormaPage = () => {
         <CardFooter className="flex justify-end w-full border-t-[1px] py-2 text-muted-foreground bg-secondary">
           <Button
             disabled={isLoading || !formState.isValid || !formState.isDirty}
-            className="rounded-lg"
-            onClick={() => {
-              setIsLoading(true);
-              setTimeout(() => {
-                setIsLoading(false);
-              }, 3000);
-            }}>
+            className="rounded-lg">
             {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
             Save
           </Button>
         </CardFooter>
       </Card>
-    </div>
+    </form>
   );
 };
 
