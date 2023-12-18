@@ -16,10 +16,10 @@ class AuthService {
   async login(): Promise<UserDto> {
     return {
       id: 0,
-      firstName: 'Nikita',
-      lastName: 'Savchuk',
-      email: 'nikita.savchuk@gmail.com',
-      fullName: 'Nikita Savchuk',
+      firstName: 'Danil',
+      lastName: 'Kravec',
+      email: 'danil.kravec@gmail.com',
+      fullName: 'Danil Kravec',
     };
   }
 }
